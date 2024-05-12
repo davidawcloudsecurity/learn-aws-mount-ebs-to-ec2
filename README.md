@@ -60,7 +60,7 @@ sudo systemctl status systemd-journald; sudo systemctl status systemd-journald.s
 ```
 After mount /var
 ```ruby
-sudo mkdir /var_mount; sudo mount /dev/$xvdb /var_mount; sudo cp -p /var/* /var_mount; sudo umount /var_mount; sudo mount /dev/$xvdb /var; sudo mkdir -p /var/log/journal
+sudo mkdir /var_mount; sudo mount /dev/$xvdb /var_mount; sudo cp -p /var/* /var_mount -rf; sudo umount /var_mount; sudo mount /dev/$xvdb /var; sudo mkdir -p /var/log/journal
 sudo restorecon -Rv /var; ls -Z
 sudo journalctl --flush
 journalctl --verify
