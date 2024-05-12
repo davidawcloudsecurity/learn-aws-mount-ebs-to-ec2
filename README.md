@@ -27,8 +27,29 @@ Use the file -s command to get information about a specific device
 
 If the output shows simply data, as in the following example output, there is no file system on the device
 ```ruby
-**sudo file -s /dev/xvdb**
+sudo file -s /dev/xvdb
 /dev/xvdb: data
+```
+Do not use this command if you're mounting a volume that already has data on it (for example, a volume that was created from a snapshot). Otherwise, you'll format the volume and delete the existing data.
+```ruby
+sudo mkfs -t xfs /dev/xvdb
+```
+If you need to preserve the data in /tmp
+```ruby
+# Create a temporary mount point
+sudo mkdir /tmp_mount
+
+# Mount /dev/xvdb to the temporary mount point
+sudo mount /dev/xvdb /tmp_mount
+
+# Move data from /tmp to the temporary mount point
+sudo mv /tmp/* /tmp_mount
+
+# Unmount the temporary mount point
+sudo umount /tmp_mount
+
+# Mount /dev/xvdb to /tmp
+sudo mount /dev/xvdb /tmp
 ```
 ## Resource
 https://docs.aws.amazon.com/ebs/latest/userguide/ebs-using-volumes.html
