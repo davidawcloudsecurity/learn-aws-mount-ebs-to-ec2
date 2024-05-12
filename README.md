@@ -51,5 +51,24 @@ sudo umount /tmp_mount
 # Mount /dev/xvdb to /tmp
 sudo mount /dev/xvdb /tmp
 ```
+
+```ruby
+sestatus; ls -Z
+sudo systemctl status systemd-journald; sudo systemctl status systemd-journald.socket; sudo systemctl status systemd-journald-dev-log.socket; sudo systemctl status rsyslog
+sudo systemctl stop systemd-journald; sudo systemctl stop systemd-journald.socket; sudo systemctl stop systemd-journald-dev-log.socket; sudo systemctl stop rsyslog
+```
+After mount /var
+```ruby
+sudo mkdir /var_mount; sudo mount /dev/$xvdb /var_mount; sudo cp -p /var/* /var_mount; sudo umount /var_mount; sudo mount /dev/$xvdb /var; sudo mkdir /var/log/journal
+sudo journalctl --flush
+journalctl --verify
+sudo restorecon -Rv /var; ls -Z
+```
+Troubleshooting logs to service
+```ruby
+journalctl -n 20 (to check 20 lines)
+journalctl -xeu rsyslog.service
+sudo systemctl reset-failed rsyslog (if failed after reset too fast error)
+```
 ## Resource
 https://docs.aws.amazon.com/ebs/latest/userguide/ebs-using-volumes.html
