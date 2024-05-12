@@ -56,6 +56,7 @@ sudo mount /dev/xvdb /tmp
 sestatus; ls -Z
 sudo systemctl status systemd-journald; sudo systemctl status systemd-journald.socket; sudo systemctl status systemd-journald-dev-log.socket; sudo systemctl status rsyslog
 sudo systemctl stop systemd-journald; sudo systemctl stop systemd-journald.socket; sudo systemctl stop systemd-journald-dev-log.socket; sudo systemctl stop rsyslog
+sudo systemctl status systemd-journald; sudo systemctl status systemd-journald.socket; sudo systemctl status systemd-journald-dev-log.socket; sudo systemctl status rsyslog
 ```
 After mount /var
 ```ruby
