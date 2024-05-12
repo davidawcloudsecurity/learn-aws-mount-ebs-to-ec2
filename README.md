@@ -3,7 +3,7 @@ How to add storage to EC2 instance with EBS
 
 Use the `lsblk` command to view your available disk devices and their mount points (if applicable) to help you determine the correct device name to use.
 ```ruby
-**lsblk**
+lsblk
 NAME    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
 xvda    202:0    0   10G  0 disk
 ├─xvda1 202:1    0    1M  0 part
@@ -14,7 +14,7 @@ xvdb    202:16   0   10G  0 disk
 ```
 or
 ```ruby
-**sudo lsblk -f**
+sudo lsblk -f
 NAME    FSTYPE FSVER LABEL UUID                                 FSAVAIL FSUSE% MOUNTPOINTS
 xvda
 ├─xvda1
