@@ -74,6 +74,7 @@ sudo blkid
 Retrieve the UUID for /dev/$xvdb ad append it below
 sudo vi /etc/fstab
 e.g UUID=aebf131c-6957-451e-8d34-ec978d9581ae  /data  xfs  defaults,nofail  0  2
+sudo systemctl daemon-reload
 ```
 Test for error
 ```ruby
