@@ -43,7 +43,7 @@ sudo mkdir /tmp_mount
 sudo mount /dev/xvdb /tmp_mount
 
 # Move data from /tmp to the temporary mount point
-sudo cp -p /tmp/* /tmp_mount
+sudo cp -p /tmp/* /tmp_mount -rf
 
 # Unmount the temporary mount point
 sudo umount /tmp_mount
