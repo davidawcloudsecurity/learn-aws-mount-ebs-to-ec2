@@ -118,6 +118,9 @@ sudo systemctl reset-failed rsyslog (if failed after reset too fast error)
 ## Resource
 https://docs.aws.amazon.com/ebs/latest/userguide/ebs-using-volumes.html
 
+## How to umount busy target
+https://stackoverflow.com/questions/7878707/how-to-unmount-a-busy-device
+
 ## How to partition
 https://gcore.com/learning/how-to-partition-a-disk-in-linux/
 
