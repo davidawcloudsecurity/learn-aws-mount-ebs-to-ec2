@@ -52,7 +52,35 @@ sudo umount /tmp_mount
 sudo mount /dev/xvdb /tmp
 sudo rm -rf /tmp_mount
 ```
+```ruby
+#!/bin/bash
 
+# Prompt for the destination directory and source device
+read -p "Enter the destination directory (e.g., /tmp): " DEST_DIR
+
+# Append destination directory to the mount directory
+MOUNT_DIR="$DEST_DIR_mount"
+
+read -p "Enter the source device (e.g., /dev/xvdb): " SOURCE_DEVICE
+
+# Create a temporary mount point
+sudo mkdir -p "$MOUNT_DIR"
+
+# Mount the source device to the temporary mount point
+sudo mount "$SOURCE_DEVICE" "$MOUNT_DIR"
+
+# Move data from the source directory to the temporary mount point
+sudo cp -p "$DEST_DIR"/* "$MOUNT_DIR" -rf
+
+# Unmount the temporary mount point
+sudo umount "$MOUNT_DIR"
+
+# Mount the source device to the destination directory
+sudo mount "$SOURCE_DEVICE" "$DEST_DIR"
+
+# Clean up: remove the temporary mount directory
+sudo rm -rf "$MOUNT_DIR"
+```
 ```ruby
 sestatus; ls -Z
 sudo systemctl status systemd-journald; sudo systemctl status systemd-journald.socket; sudo systemctl status systemd-journald-dev-log.socket; sudo systemctl status rsyslog
