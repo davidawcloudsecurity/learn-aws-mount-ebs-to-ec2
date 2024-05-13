@@ -117,3 +117,8 @@ sudo systemctl reset-failed rsyslog (if failed after reset too fast error)
 ```
 ## Resource
 https://docs.aws.amazon.com/ebs/latest/userguide/ebs-using-volumes.html
+
+## How to partition
+https://gcore.com/learning/how-to-partition-a-disk-in-linux/
+
+https://phoenixnap.com/kb/delete-partition-linux
