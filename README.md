@@ -50,6 +50,7 @@ sudo umount /tmp_mount
 
 # Mount /dev/xvdb to /tmp
 sudo mount /dev/xvdb /tmp
+sudo rm -rf /tmp_mount
 ```
 
 ```ruby
