@@ -57,11 +57,10 @@ sudo rm -rf /tmp_mount
 
 # Prompt for the destination directory and source device
 read -p "Enter the destination directory (e.g., /tmp): " DEST_DIR
+read -p "Enter the source device (e.g., /dev/xvdb): " SOURCE_DEVICE
 
 # Append destination directory to the mount directory
-MOUNT_DIR="$DEST_DIR_mount"
-
-read -p "Enter the source device (e.g., /dev/xvdb): " SOURCE_DEVICE
+MOUNT_DIR="${DEST_DIR}_mount"
 
 # Create a temporary mount point
 sudo mkdir -p "$MOUNT_DIR"
