@@ -91,6 +91,7 @@ After mount /var
 sudo mkdir /var_mount; sudo mount /dev/$xvdb /var_mount; sudo cp -p /var/* /var_mount -rf; sudo umount /var_mount; sudo mount /dev/$xvdb /var; sudo mkdir -p /var/log/journal
 sudo restorecon -Rv /var; ls -Z
 sudo systemctl start systemd-journald; sudo systemctl start systemd-journald.socket; sudo systemctl start systemd-journald-dev-log.socket; sudo systemctl start rsyslog
+sudo systemctl daemon-reload
 sudo journalctl --flush
 journalctl --verify
 sudo restorecon -Rv /var; ls -Z
